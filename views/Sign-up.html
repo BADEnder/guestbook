@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuestBook</title>
+
+    <link rel="stylesheet" href="/css/log-in.css">
+
+    <script src="/js/packages/vue@3.2.47-prod.js"></script>
+    <script src="/js/template.js" defer></script>
+    <script src="/js/log-in-fe.js" defer></script>
+</head>
+<body>
+    <header id="header" class="container" v-cloak></header>
+
+    <main class="center">
+        <div class="bd">
+            <label for="user" >帳號</label>
+            <input type="text" id="user">
+            <br>
+            <label for="pwd">密碼</label>
+            <input type="password" id="pwd">
+            <br>
+            <button id="submit" class="btn" onclick="submitLogIn()">登錄</button>
+        </div>
+    </main>
+
+    <footer id="footer" class="container"></footer>
+
+</body>
+</html>

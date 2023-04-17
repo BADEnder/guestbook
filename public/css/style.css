@@ -1,0 +1,131 @@
+@import url('./packages/elem-reset.css');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --HEADER-MIN-HEIGHT: 10vh;
+    --FOOTER-MIN-HEIGHT: 10vh;
+
+    --BANNER-COLOR: skyblue
+}
+
+main {
+    min-height: 100vh;
+    background-color: lightgray;
+}
+
+header {
+    min-height: var(--HEADER-MIN-HEIGHT);
+    background-color: var(--BANNER-COLOR);
+}
+
+main {
+    min-height: calc(100vh - var(--HEADER-MIN-HEIGHT) - var(--FOOTER-MIN-HEIGHT));
+}
+
+footer {
+    min-height: var(--FOOTER-MIN-HEIGHT);
+    background-color: var(--BANNER-COLOR);
+}
+
+
+
+.logo {
+    font-size: 2rem;
+}
+
+.container {
+    padding: 0 2rem;
+}
+
+
+
+
+
+/* nav decoration */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav {
+    display: flex;
+}
+
+header nav div {
+    margin: 0.5rem;
+}
+
+.nav-menu-but {
+    display: none;
+    background-color: transparent;
+}
+
+.nav-menu-icon {
+    height: 30px;
+    width: 30px;
+}
+
+@media (max-width: 992px) {
+    header nav {
+        display: none;
+
+        position: absolute;
+        top: var(--HEADER-MIN-HEIGHT);
+        left: 0;
+        z-index: 1;
+
+        background-color: var(--BANNER-COLOR);
+        width: 100%;
+
+        transform-origin: top center;
+        animation: showMenu 0.5s ease-in-out forwards;
+
+        
+    }
+
+    header nav div {
+        border-top: 1px solid white;
+        margin: 0;
+        padding: 0.5rem;
+    }
+    header nav div a{
+        display: block;
+        width: 80%;
+        margin: auto;
+        text-align: center;
+    }
+
+    header nav div a:hover,
+    header nav div a:focus {
+        transform: scale(1.2);
+        transition: all 0.3s;
+    }
+
+
+    @keyframes showMenu {
+        0% {
+            transform: scaleY(0);
+        }
+
+        77% {
+            transform: scaleY(1.2);
+        }
+
+        100% {
+            transform: scaleY(1);
+        }
+    }
+
+    .nav-menu-but {
+        display: block;
+    }
+
+    :is(header:hover, header:focus) nav {
+        display: block
+    }
+}

@@ -1,0 +1,16 @@
+a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+a:any-link {
+    color: black
+}
+
+a:hover, a:focus {
+    color: green
+}
+
+li, label, input, button {
+    display: inline-block
+}
