@@ -4,18 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GuestBook</title>
+    <link rel="icon" href="/img/guestbook.png" type="image/x-icon">
 
     <link rel="stylesheet" href="/css/home.css">
 
     <script src="/js/packages/vue@3.2.47-prod.js"></script>
+    <script src="/js/u.js"></script>
     <script src="/js/template.js" defer></script>
+    <script src="/js/home.js" defer></script>
+
 </head>
 <body>
-    <header id="header" class="container">
+    <header id="header" class="container" v-cloak>
 
     </header>
-    <main></main>
-    <footer id="footer"></footer>
+    <main>
+        <section class="first-section container">
+            <div>
+                <div class="h4">
+                    <p> For the Better World, we got to ...</p>
+                </div>
+                <div class="center p-3 ">
+                    <span>
+                        <button class="h4" onclick="toggleForm()">Leave comment</button>
+                    </span>
+                </div>
+            </div>
+            <!-- <div> 
+                <img src="/img/landscape.jpg" alt="Cannot find the img" width="300px" height="auto">
+            </div> -->
+        </section>
+        <section class="second-section container">
+            <!-- <h style="color:red;text-transform: uppercase;">Here I wanna put the search bar</h1> -->
+        </section>
+        <section class="third-section col" >
+
+        </section>
+    </main>
+    <div id="form" class="form">
+        <div class="h3 m-2 p-2">Comment Now:</div>
+        <hr>
+        <label for="title" class="m-2">Title:</label>
+        <input id="title" class="m-2 p-2" type="text" value="">
+        <label for="content" class="m-2">Content:</label>
+        <textarea id="content" class="m-2 p-2"></textarea>
+
+        <hr>
+        <div>
+            <button class="m-2 p-2"  onclick="submitContent()">Submit</button>
+            <button class="m-2 p-2"  onclick="toggleForm()">Cancel</button>
+        </div>
+    </div>
+    <footer id="footer" class="container" v-cloak></footer>
+
 </body>
 </html>

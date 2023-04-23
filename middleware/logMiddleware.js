@@ -29,6 +29,7 @@ const logRecord = (req, res, next) => {
 }
 
 
+
 module.exports = {
     logEvent,
     logRecord

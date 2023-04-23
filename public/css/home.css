@@ -1,1 +1,53 @@
 @import url(./style.css);
+
+
+
+
+
+
+.first-section {
+    height: 500px;
+    /* background-color: green; */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-image: url('/img/landscape.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.first-section p {
+    /* color:rgb(184, 184, 184); */
+    /* background: linear-gradient(30deg, red, green, blue); */
+    /* color: linear-gradient(30deg, red, green, blue) */
+    background: -webkit-linear-gradient(rgb(48, 250, 48), rgb(6, 255, 243));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.first-section button {
+    background-color:rgb(178, 190, 173);
+    border-radius: 10px;
+}
+
+.second-section {
+    height: 50px;
+    /* background-color: palegreen; */
+}
+
+.third-section {
+    height: auto;
+    /* background-color: yellow; */
+}
+
+
+
+.card {
+    height: 300px;
+    background-color: rgb(240, 224, 190);
+    border: 5px double gray;
+    border-radius: 10px;
+    overflow: auto;
+}

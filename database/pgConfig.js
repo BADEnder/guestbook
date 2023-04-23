@@ -9,12 +9,10 @@ const config = {
     database: process.env.DB_DB || 'postgres'
 }
 
-const main = async (query) => {
-    const client = new Client(config)
-
-    await client.connect()
-    const res = await client.query(query)
-    await client.end()
+const main = () => {
+    return new Client(config)
 }
 
 module.exports = main
+
+

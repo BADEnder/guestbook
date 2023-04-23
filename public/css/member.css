@@ -1,0 +1,25 @@
+@import url('./style.css');
+
+
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input, label{
+    display:block
+}
+
+
+input {
+    border-radius: 5px;
+
+}
+
+
+.border {
+    border: 2px solid black;
+    border-radius: 10px;
+}

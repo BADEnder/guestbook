@@ -1,4 +1,4 @@
-const create_table = require('./create_tables')
+const create_table = require('./createTables')
 
 
 

@@ -5,25 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GuestBook</title>
+    <link rel="icon" href="/img/guestbook.png" type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/log-in.css">
+    <link rel="stylesheet" href="/css/member.css">
 
     <script src="/js/packages/vue@3.2.47-prod.js"></script>
     <script src="/js/template.js" defer></script>
-    <script src="/js/log-in-fe.js" defer></script>
+    <script src="/js/sign-up.js" defer></script>
 </head>
 <body>
     <header id="header" class="container" v-cloak></header>
 
     <main class="center">
-        <div class="bd">
-            <label for="user" >帳號</label>
-            <input type="text" id="user">
-            <br>
-            <label for="pwd">密碼</label>
-            <input type="password" id="pwd">
-            <br>
-            <button id="submit" class="btn" onclick="submitLogIn()">登錄</button>
+        <div class="border p-3">
+            <div class="m-2 h3">Sign Up</div>
+            <hr>
+            <label class="m-2" for="username" >Username</label>
+            <input class="m-2" type="text" id="username">
+            <label class="m-2" for="name" >Name</label>
+            <input class="m-2" type="text" id="name">
+            <label class="m-2" for="email" >Email</label>
+            <input class="m-2" type="email" id="email">
+
+            <label class="m-2" for="password">Password</label>
+            <input class="m-2" type="password" id="password">
+            <label class="m-2" for="password-again">Retype Password</label>
+            <input class="m-2" type="password" id="password-again">
+            <button class="m-2" id="submit" class="btn" onclick="submitSignUp()">Submit</button>
+
+
         </div>
     </main>
 

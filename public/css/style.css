@@ -1,15 +1,24 @@
 @import url('./packages/elem-reset.css');
+@import url('./packages/useful.css');
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
 
 * {
     margin: 0;
     padding: 0;
+
+    box-sizing: border-box;
+    break-inside: avoid;
+    font-family: 'Nunito', sans-serif;
 }
 
 :root {
     --HEADER-MIN-HEIGHT: 10vh;
-    --FOOTER-MIN-HEIGHT: 10vh;
+    --FOOTER-MIN-HEIGHT: 6vh;
 
-    --BANNER-COLOR: skyblue
+    --BANNER-COLOR: rgb(64, 168, 209);
+
+    --FORM-WIDTH: 30%;
 }
 
 main {
@@ -31,7 +40,11 @@ footer {
     background-color: var(--BANNER-COLOR);
 }
 
-
+footer {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
 
 .logo {
     font-size: 2rem;
@@ -40,6 +53,64 @@ footer {
 .container {
     padding: 0 2rem;
 }
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+[v-cloak] {
+    display: none
+}
+
+
+
+
+/* form */
+
+.form {
+    display: none;
+    width: var(--FORM-WIDTH);
+
+    position: absolute;
+    z-index: 1;
+    left: calc( 50% - var(--FORM-WIDTH)/2 );
+    top: calc( var(--HEADER-MIN-HEIGHT) + 5vh);
+    
+    background-color: rgba(66, 54, 54, 1);
+
+    flex-direction: column;
+    justify-content: center;
+    border: 5px silver double;
+    border-radius: 10px ;
+}
+
+
+
+@media (max-width:992px) {
+    .form {
+        --FORM-WIDTH: 50%
+    }
+
+}
+
+
+@media (max-width: 768px) {
+    .form {
+        --FORM-WIDTH: 80%
+    }
+    
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -62,7 +133,9 @@ header nav div {
 
 .nav-menu-but {
     display: none;
-    background-color: transparent;
+    background-color: rgba(181, 192, 192, 0.6);
+    background-image: url('/img/btn-3line.svg');
+    border: 1px solid rgba(155, 149, 149, 0.404);
 }
 
 .nav-menu-icon {
@@ -125,7 +198,7 @@ header nav div {
         display: block;
     }
 
-    :is(header:hover, header:focus) nav {
+    :is(header:hover, header:focus-within) nav {
         display: block
     }
 }

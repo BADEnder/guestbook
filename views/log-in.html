@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GuestBook</title>
+    <link rel="icon" href="/img/guestbook.png" type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/log-in.css">
+    <link rel="stylesheet" href="/css/member.css">
 
     <script src="/js/packages/vue@3.2.47-prod.js"></script>
     <script src="/js/template.js" defer></script>
@@ -16,15 +17,18 @@
     <header id="header" class="container" v-cloak></header>
 
     <main class="center">
-        <div class="bd">
-            <label for="user" >帳號</label>
-            <input type="text" id="user">
+        <div class="border p-3">
+            <div class="m-2 h3"> Log In</div>
+            <hr>
+            <label class="m-2" for="username" >Username</label>
+            <input class="m-2" type="text" id="username">
+
+            <label class="m-2" for="password">Password</label>
+            <input class="m-2" type="password" id="password">
+
+            <button class="m-2" id="submit" class="btn" onclick="submitLogIn()">Submit</button>
             <br>
-            <label for="pwd">密碼</label>
-            <input type="password" id="pwd">
-            <br>
-            <button id="submit" class="btn" onclick="submitLogIn()">登錄</button>
-            <button id="submit" class="btn" onclick="redirectSignUp()">註冊</button>
+            <a class="m-2" href="/sign-up">No account? Go to Sign Up!</a>
         </div>
     </main>
 

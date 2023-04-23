@@ -7,30 +7,44 @@ const headerTemplate = Vue.createApp({
                     url: "/"
                 },
                 {
-                    name: "Member",
-                    url: "/member"
+                    name: "Setting",
+                    url: "/setting"
                 },
                 {
                     name: "Log-Out",
-                    url: "/log-out"
+                    url: "/api/log-out"
                 }
             ]
         }
     },
     template: 
     `
-    <div class="logo">GuestBook</div>
-    <nav class="nav-menu">
-        <div v-for="(item, index) in url_list">
-            <a :href="item.url"> {{item.name}} </a>
-        </div>
-    </nav>
-    
-    <button class="nav-menu-but">
-        <div class="nav-menu-icon">
-    </button>
+        <div class="logo">GuestBook</div>
+        <nav class="nav-menu">
+            <div v-for="(item, index) in url_list">
+                <a :href="item.url"> {{item.name}} </a>
+            </div>
+        </nav>
+        
+        <button class="nav-menu-but">
+            <div class="nav-menu-icon">
+        </button>
     `
 })
 
+const footerTemplate = Vue.createApp({
+    data: function () {
+        return {
 
-headerTemplate.mount("#header")
+        }
+    },
+    template: 
+    `
+        <div>
+            <span>&copy; Copyright ${new Date().getFullYear()}</span>
+        </div>
+    `
+})
+
+headerTemplate.mount('#header')
+footerTemplate.mount('#footer')
