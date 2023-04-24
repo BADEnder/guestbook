@@ -8,6 +8,7 @@ const session = require('express-session')
 const cors = require('cors')
 
 const app = express()
+const app_http = express()
 
 const {logRecord} = require('./middleware/logMiddleware')
 const errorHandler = require('./middleware/errorHandler')
