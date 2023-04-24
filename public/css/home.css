@@ -22,7 +22,7 @@
     /* color:rgb(184, 184, 184); */
     /* background: linear-gradient(30deg, red, green, blue); */
     /* color: linear-gradient(30deg, red, green, blue) */
-    background: -webkit-linear-gradient(rgb(48, 250, 48), rgb(6, 255, 243));
+    background: -webkit-linear-gradient(#4cea59, #32ebe8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

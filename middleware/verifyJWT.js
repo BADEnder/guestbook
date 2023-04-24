@@ -26,16 +26,8 @@ const verifyJWT = (req, res, next) => {
 }
 
 const verifyRefreshToken = async (req, res, next) => {
-    // console.log(req)
-    // console.log(req.cookie)
-    // console.log(req.cookies)
-    // console.log(req.session)
-    // console.log(req.session.test)
-    // console.log(req.headers)
-    // console.log(Object.keys(req))
 
     if (!req.cookies || !req.cookies.jwt) {
-        // console.log("no cookies or jwt")
         return res.redirect('/log-in')
     }
 
