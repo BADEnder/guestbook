@@ -1,4 +1,5 @@
 const pgConfig = require('../database/pgConfig')
+const checkSQLInjection = require('../database/checkSQLInjection')
 
 const getContent = async (req, res) => {
     const client = pgConfig()
@@ -44,9 +45,10 @@ const postContent = async(req, res) => {
         } 
     
         let columns = `(title, content, user_id)`
-        let values = `('${req.body.title}', '${req.body.content}', ${req.body.user_id})`
+        let values = `('${checkSQLInjection(req.body.title)}', '${checkSQLInjection(req.body.content)}', ${req.body.user_id})`
         let query = `INSERT INTO guestbook ${columns} VALUES ${values}`
         
+        console.log(values)
         const client = pgConfig()
         await client.connect()
         await client.query(query)
