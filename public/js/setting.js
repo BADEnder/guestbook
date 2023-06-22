@@ -44,3 +44,18 @@ const changePwd = async () => {
     }
     
 } 
+
+
+// const test_fun = () => {
+//     const total_piece = prompt('請輸入份數')
+//     const check_idx = confirm(`件號: A4702-000-B829\n總份數: ${total_piece}\n請確認?`)
+
+//     console.log(total_piece)
+//     console.log(typeof total_piece)
+//     if (check_idx) {
+//         alert('Success')
+
+//     } else {
+//         alert('OK, you loser')
+//     }
+// }

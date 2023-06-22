@@ -38,6 +38,8 @@ app.use('/sign-up', require('./routes/web/signUpRoute'))
 // APIs - no authentication
 app.use('/api/auth', require('./routes/api/authRoute'))
 app.use('/api/user', require('./routes/api/userRoute'))
+app.use('/api/content', require('./routes/api/contentRoute'))
+
 
 // Second middlewares - verification
 app.use(verifyJWT.verifyJWT)
@@ -48,7 +50,6 @@ app.use('/', require('./routes/web/homeRoute'))
 app.use('/setting', require('./routes/web/settingRoute'))
 
 // APIs
-app.use('/api/content', require('./routes/api/contentRoute'))
 app.use('/api/log-out', require('./routes/api/logOutRoute'))
 
 app.all('*', (req, res) => {

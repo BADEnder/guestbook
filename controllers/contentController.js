@@ -2,35 +2,62 @@ const pgConfig = require('../database/pgConfig')
 const checkSQLInjection = require('../database/checkSQLInjection')
 
 const getContent = async (req, res) => {
-    const client = pgConfig()
+    const client1 = pgConfig()
+    const client2 = pgConfig()
     
-    let body = req.body
-    let query 
+    let result = {}
+    let query1, query2, targetPage, itemNumber
 
-    // if (!body) {
-        // query = 
-        // `
-        //     SELECT a.*, b.replybook_id
-        //     FROM guestbook AS a
-        //     LEFT JOIN replybook AS b
-        //     ON a.guestbook_id = b.guestbook_id
-        // `
-        query = 
-        `
-            SELECT a.*, b.name
-            FROM guestbook AS a
-            INNER JOIN members AS b
-            ON a.user_id = b.user_id 
-        `
-    // }
+    // console.log(req)
+    // console.log(req.body)
+    console.log(req.query)
+    if (!req.query.targetPage || !Number(req.query.targetPage)) {
+        targetPage = 1
+    } else {
+        targetPage = Number(req.query.targetPage)
+    }
 
-    // console.log(query)
+    if ( !req.query.itemNumber || !Number(req.query.itemNumber)) {
+        itemNumber = 10
+    } else {
+        itemNumber = Number(req.query.itemNumber)
+    }
 
-    await client.connect()
-    const response = await client.query(query)
-    const data = response.rows
-    res.json(data)
-    await client.end()
+    query1 = 
+    `
+        SELECT a.*, b.name
+        FROM guestbook AS a
+        INNER JOIN members AS b
+        ON a.user_id = b.user_id 
+        OFFSET (${(targetPage -1) * itemNumber})
+        LIMIT ${itemNumber}
+    `
+
+    query2 = 
+    `
+        SELECT count(*)
+        FROM guestbook 
+        
+    `
+
+    await client1.connect()
+    const response1 = await client1.query(query1)
+    result.data = response1.rows
+    await client1.end()
+
+    await client2.connect()
+    const response2 = await client2.query(query2)
+    // console.log('res2 =', response2)
+    
+    const total = Number(response2.rows[0]['count'])
+    result.totalPage = total % itemNumber == 0 
+        ? total / itemNumber 
+        : Number.parseInt( total/itemNumber) +1
+
+    res.json(result)
+    await client2.end()
+
+
     
 }
 
