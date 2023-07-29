@@ -19,12 +19,14 @@
 }
 
 .first-section p {
-    /* color:rgb(184, 184, 184); */
-    /* background: linear-gradient(30deg, red, green, blue); */
-    /* color: linear-gradient(30deg, red, green, blue) */
-    background: -webkit-linear-gradient(#4cea59, #32ebe8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+
+    /* background: -webkit-linear-gradient(#8eff97, #00302f); */
+    /* -webkit-background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
+
+    background-color: rgba(184, 184, 184, 0.6);
+    border-radius: 5px;
+
 }
 
 .first-section button {
@@ -74,9 +76,45 @@
 
 
 .card {
+    position: relative;
     height: 300px;
     background-color: rgb(240, 224, 190);
     border: 5px double gray;
     border-radius: 10px;
     overflow: auto;
+}
+
+.card-reply {
+    position: relative;
+    height: auto;
+    background-color: rgba(228, 218, 198, 0.5);
+    border: 5px double gray;
+    border-radius: 10px;
+    overflow: auto;
+}
+
+.msg-fun-but {
+    position: absolute;
+    width: 92%;
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    bottom: 5%;
+}
+
+
+.show-reply-msg {
+    background-color: transparent;
+    color: blue;
+    border:  none;
+}
+
+.show-reply-msg:hover, .show-reply-msg:focus {
+    background-color: transparent;
+    color: purple;
+}
+
+.show-reply-msg:focus {
+    font-weight: bold;
+
 }

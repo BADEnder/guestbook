@@ -73,7 +73,6 @@ footer {
 
 
 /* form */
-
 .form {
     display: none;
     width: var(--FORM-WIDTH);
@@ -107,17 +106,6 @@ footer {
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* nav decoration */

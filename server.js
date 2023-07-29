@@ -39,6 +39,7 @@ app.use('/sign-up', require('./routes/web/signUpRoute'))
 app.use('/api/auth', require('./routes/api/authRoute'))
 app.use('/api/user', require('./routes/api/userRoute'))
 app.use('/api/content', require('./routes/api/contentRoute'))
+app.use('/api/replyContent', require('./routes/api/replyContentRoute'))
 
 
 // Second middlewares - verification

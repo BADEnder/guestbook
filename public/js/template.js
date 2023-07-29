@@ -17,8 +17,11 @@ const headerTemplate = Vue.createApp({
             ]
         }
     },
+    // <img src="/img/guestbook.png" alt="" width: "20">
+
     template: 
     `
+        
         <div class="logo">GuestBook</div>
         <nav class="nav-menu">
             <div v-for="(item, index) in url_list">

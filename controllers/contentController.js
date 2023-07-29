@@ -8,9 +8,6 @@ const getContent = async (req, res) => {
     let result = {}
     let query1, query2, targetPage, itemNumber
 
-    // console.log(req)
-    // console.log(req.body)
-    console.log(req.query)
     if (!req.query.targetPage || !Number(req.query.targetPage)) {
         targetPage = 1
     } else {
@@ -25,13 +22,21 @@ const getContent = async (req, res) => {
 
     query1 = 
     `
-        SELECT a.*, b.name
+        SELECT a.*, b.name,
+		(	
+			SELECT COUNT(c.replybook_id)
+			FROM replybook as c
+		 	WHERE c.guestbook_id = a.guestbook_id
+		) 
+        AS reply_msg_number
         FROM guestbook AS a
         INNER JOIN members AS b
         ON a.user_id = b.user_id 
+
         OFFSET (${(targetPage -1) * itemNumber})
         LIMIT ${itemNumber}
     `
+
 
     query2 = 
     `
@@ -47,7 +52,6 @@ const getContent = async (req, res) => {
 
     await client2.connect()
     const response2 = await client2.query(query2)
-    // console.log('res2 =', response2)
     
     const total = Number(response2.rows[0]['count'])
     result.totalPage = total % itemNumber == 0 
@@ -75,7 +79,6 @@ const postContent = async(req, res) => {
         let values = `('${checkSQLInjection(req.body.title)}', '${checkSQLInjection(req.body.content)}', ${req.body.user_id})`
         let query = `INSERT INTO guestbook ${columns} VALUES ${values}`
         
-        console.log(values)
         const client = pgConfig()
         await client.connect()
         await client.query(query)

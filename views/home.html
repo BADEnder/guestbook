@@ -13,7 +13,6 @@
     <script src="/js/u.js"></script>
     <script src="/js/template.js" defer></script>
     <script src="/js/home.js" defer></script>
-
 </head>
 <body>
     <header id="header" class="container" v-cloak>
@@ -23,11 +22,11 @@
         <section class="first-section container">
             <div>
                 <div class="h4">
-                    <p> How to let the world better? Just ...</p>
+                    <p class="p-3"> How to let the world better? Just ...</p>
                 </div>
                 <div class="center p-3 ">
                     <span>
-                        <button class="h4 p-3" onclick="toggleForm()">Leave comment</button>
+                        <button class="h4 p-3" onclick="toggleCommentForm()">Leave comment</button>
                     </span>
                 </div>
             </div>
@@ -46,7 +45,7 @@
 
     </main>
 
-    <div id="form" class="form">
+    <div id="commentForm" class="form">
         <div class="h3 m-2 p-2">Comment Now:</div>
         <hr>
         <label for="title" class="m-2">Title:</label>
@@ -57,9 +56,38 @@
         <hr>
         <div>
             <button class="m-2 p-2"  onclick="submitContent()">Submit</button>
-            <button class="m-2 p-2"  onclick="toggleForm()">Cancel</button>
+            <button class="m-2 p-2"  onclick="toggleCommentForm()">Cancel</button>
         </div>
     </div>
+
+    <div id="replyForm" class="form">
+        <div class="h3 m-2 p-2">Reply message:</div>
+        <hr>
+        <label for="reply-content" class="m-2">Content:</label>
+        <textarea id="reply-content" class="m-2 p-2"></textarea>
+
+        <hr>
+        <div>
+            <button class="m-2 p-2" onclick="submitReplyContent()">Submit</button>
+            <button class="m-2 p-2" onclick="toggleReplyFormG()">Cancel</button>
+        </div>
+    </div>
+
+    <div id="reply-detail" class="form">
+        <div class="h3 m-2 p-2">Reply Detail:</div>
+        <hr>
+            <div id="reply-detail-msg">
+
+            </div>
+            <div>
+                <button class="m-2 p-2" onclick="toggleReplyDetailG()">Close</button>
+            </div>
+        <hr>
+
+    </div>
+
+
+
     <footer id="footer" class="container" v-cloak></footer>
 
 </body>
