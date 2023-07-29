@@ -42,12 +42,10 @@ const submitSignUp = async () => {
                 email: email.value
             })
         })
-        console.log("what up2?")
 
         const data = await f.json()
         if (f.status != 200) {
             alert(`${data.msg}`)
-            alert('fuck you')
         } else {
             alert(`${data.msg}`)
             window.location = "/log-in"

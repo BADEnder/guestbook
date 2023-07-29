@@ -9,7 +9,7 @@ const getReplyContent = async (req, res) => {
 
     let query = 
     `
-    SELECT a.replybook_id, a.message, b.name
+    SELECT a.replybook_id, a.message, a.update_time, b.name
     FROM replybook AS a
     INNER JOIN members AS b
     ON a.user_id = b.user_id 

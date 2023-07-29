@@ -41,7 +41,7 @@ function lockWindow(boolean=true) {
     
 }
   
-const toggleCommentForm = function () {
+function toggleCommentForm () {
     if (toggleIndex) {
         commentForm.style.display = 'flex'
         header.style.opacity = 0.5
@@ -120,11 +120,13 @@ const submitContent = async() => {
     const data = await f.json()
     if (f.status != 200) {
         alert(`${data.msg}`)
+
+
     } else {
         alert(`${data.msg}`)
         title.value = ''
         content.value = ''
-        togglecommentForm()
+        toggleCommentForm()
         window.location = '/'
     }
 
@@ -149,6 +151,8 @@ const submitReplyContent = async() => {
     const data = await f.json()
     if (f.status != 200) {
         alert(`${data.msg}`)
+        window.location = '/'
+
     } else {
         alert(`${data.msg}`)
         message.value = ''
@@ -175,6 +179,7 @@ const homeVue = Vue.createApp({
             <div class="col-3 col-md-6 col-sm-12" v-for="(item, index) in content">
                 <div class="m-2 p-3 card ">
                     <div class="h3 mb-3">{{item.title}}</div>
+                    <div class="mb-3"> ({{getLocalTime(item.update_time)}})</div>
                     <hr>
                     <div class="my-3">{{item.name}} said:</div>
                     <div class="break-text ms-5">{{item.content}}</div>
@@ -197,6 +202,9 @@ const homeVue = Vue.createApp({
 
     `,
     methods: {
+        getLocalTime: function (time) {
+            return new Date(time).toLocaleString()
+        },
         getContent: async function (targetPage=this.page, itemNumber=12) {
 
             let url = `/api/content?targetPage=${targetPage}&itemNumber=${itemNumber}`
@@ -234,7 +242,9 @@ const homeVue = Vue.createApp({
 
 
                     <div class="m-2 p-3 card-reply">
-                        <h3> No. ${index+1}</h3>
+                        
+                        <h3> No. ${index+1} </h3>
+                        <span style="font-size: 0.8rem"> (${this.getLocalTime(item.update_time)})</span>
                         <div class="my-3">${item.name} said:</div>
                         <div class="break-text ms-5">${item.message}</div>
                     </div>
