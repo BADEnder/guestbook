@@ -1,6 +1,5 @@
 @import url('./packages/elem-reset.css');
 @import url('./packages/useful.css');
-@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 
 
 * {
@@ -9,14 +8,14 @@
 
     box-sizing: border-box;
     break-inside: avoid;
-    font-family: 'Nunito', sans-serif;
+    font-family: Snell Roundhand, cursive, 'Times New Roman', Times, serif;
 }
 
 :root {
     --HEADER-MIN-HEIGHT: 10vh;
     --FOOTER-MIN-HEIGHT: 6vh;
 
-    --BANNER-COLOR: rgb(64, 168, 209);
+    --BANNER-COLOR: rgb(50, 128, 231);
 
     --FORM-WIDTH: 30%;
 }
@@ -77,7 +76,7 @@ footer {
     display: none;
     width: var(--FORM-WIDTH);
 
-    position: absolute;
+    position: fixed;
     z-index: 1;
     left: calc( 50% - var(--FORM-WIDTH)/2 );
     top: calc( var(--HEADER-MIN-HEIGHT) + 5vh);
@@ -125,14 +124,15 @@ header nav div {
 
 .nav-menu-but {
     display: none;
-    background-color: rgba(181, 192, 192, 0.6);
+    background-color:  rgba(117, 151, 243, 0.5);
     background-image: url('/img/btn-3line.svg');
-    border: 1px solid rgba(155, 149, 149, 0.404);
+    border: 3px solid  rgb(117, 151, 243);
+    border-radius: 10px;
 }
 
 .nav-menu-icon {
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
 }
 
 @media (max-width: 992px) {

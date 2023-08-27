@@ -14,8 +14,10 @@
     align-items: center;
 
     background-image: url('/img/landscape.jpg');
+    /* background-image: url('/img/bh.png'); */
     background-repeat: no-repeat;
     background-size: cover;
+    /* background-size:auto; */
 }
 
 .first-section p {
@@ -24,8 +26,18 @@
     /* -webkit-background-clip: text; */
     /* -webkit-text-fill-color: transparent; */
 
-    background-color: rgba(184, 184, 184, 0.6);
-    border-radius: 5px;
+    background-color: rgba(94, 94, 94, 0.8);
+    border-radius: 20px;
+
+}
+.first-section div span button {
+
+    /* background: -webkit-linear-gradient(#8eff97, #00302f); */
+    /* -webkit-background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
+
+    background-color: rgba(155, 155, 155, 0.9);
+    border-radius: 20px;
 
 }
 
