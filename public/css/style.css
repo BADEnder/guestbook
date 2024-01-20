@@ -8,7 +8,7 @@
 
     box-sizing: border-box;
     break-inside: avoid;
-    font-family: cursive, 'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 :root {
