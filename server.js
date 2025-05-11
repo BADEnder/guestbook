@@ -18,7 +18,11 @@ const verifyLogIn = require('./middleware/verifyLogIn')
 const corsOptions = require('./config/corsOptions')
 const sessionOptions = require('./config/sessionOptions')
 // const httpsOptions = require('./config/httpsOptions')
-const PORT = process.env.HTTP_PORT || 3500
+
+// Hostname and Port
+const IP = process.env.IP || '127.0.0.1'
+const HTTPS_PORT = process.env.HTTPS_PORT || 443 
+const HTTP_PORT= process.env.HTTP_PORT || 80
 
 // Basic middleware from express.js
 app.use(express.urlencoded({ extended: false }))
@@ -69,8 +73,8 @@ app.all('*', (req, res) => {
 app.use(errorHandler)
 
 // Dev deplyment without SSL
-app.listen(PORT, () => {
-    console.log(`Server is running at port:${PORT}`)
+app.listen(HTTP_PORT, () => {
+    console.log(`Server is running at port:${HTTP_PORT}`)
 })
 
 /* 
