@@ -83,11 +83,11 @@ app.listen(HTTP_PORT, () => {
      res.redirect(307,`https://${process.env.DOMAIN_NAME}${req.url}`)
  })
 
- http.createServer(app_http).listen(80, () => {
+ http.createServer(app_http).listen(HTTP_PORT, () => {
      console.log(`Server is running at PORT: ${HTTP_PORT}, but it's redirecting to ${HTTPS_PORT}`)
  })
 
- https.createServer(httpsOptions, app).listen(443, () => {
+ https.createServer(httpsOptions, app).listen(HTTPS_PORT, () => {
      console.log(`Server is running at PORT: ${HTTPS_PORT}`)
  })
 
